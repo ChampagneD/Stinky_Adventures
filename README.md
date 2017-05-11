@@ -13,7 +13,7 @@ Adventure and reflection game about a sheriff deputy who's getting mocked by a c
 
 ## CODE & API 
 
-This game is developed in **JavaScript** using **Phaser**  
+This game is developed in **JavaScript** using **RPG JS**  
 
 ## DATAS
 
