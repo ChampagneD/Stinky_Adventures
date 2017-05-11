@@ -1,4 +1,4 @@
-# Golden_Sun_Remix 
+# Stinky Adventures
 
 ### Web game in solo
 
