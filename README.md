@@ -4,7 +4,9 @@
 
 Adventure and narrative game about a sheriff deputy who got to choose between multiple game path and who's getting mocked by a cynical and omnipotent narrator
 
-The style of this game is pixel-art and we used Pokemon on GBA as a reference
+As a style we used pixel-art : something like this :
+
+![alt text](http://4.bp.blogspot.com/-QPPVSSszc7A/UQLfe39IzeI/AAAAAAAAGjI/iUId9Qpi7cY/s1600/pokemon-emeraude-gba-4.jpg)
 
 ## Rules
 
