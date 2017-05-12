@@ -6,7 +6,7 @@ Adventure and narrative game about a sheriff deputy who got to choose between mu
 
 As a style we used pixel-art : something like this :
 
-![alt text](http://4.bp.blogspot.com/-QPPVSSszc7A/UQLfe39IzeI/AAAAAAAAGjI/iUId9Qpi7cY/s1600/pokemon-emeraude-gba-4.jpg)
+![alt text](http://img1.game-oldies.com/sites/default/files/snaps/nintendo-game-boy-advance/pokemon-emerald-version-usa-europe.png)
 
 ## Rules
 
