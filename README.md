@@ -4,6 +4,8 @@
 
 Adventure and narrative game about a sheriff deputy who got to choose between multiple game path and who's getting mocked by a cynical and omnipotent narrator
 
+The style of this game is pixel-art and we used Pokemon on GBA as a reference
+
 ## Rules
 
 * The player move with arrow keys  
