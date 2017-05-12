@@ -2,7 +2,7 @@
 
 ### Web game in solo
 
-Adventure and reflection game about a sheriff deputy who got to choose between multiple game path and who's getting mocked by a cynical and omnipotent narrator
+Adventure and narrative game about a sheriff deputy who got to choose between multiple game path and who's getting mocked by a cynical and omnipotent narrator
 
 ## Rules
 
