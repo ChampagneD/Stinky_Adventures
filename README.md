@@ -4,7 +4,7 @@
 
 Adventure and narrative game about a sheriff deputy who got to choose between multiple game path and who's getting mocked by a cynical and omnipotent narrator
 
-As a style we used pixel-art : something like this :
+As a style we used pixel-art, something like this :
 
 ![alt text](http://img1.game-oldies.com/sites/default/files/snaps/nintendo-game-boy-advance/pokemon-emerald-version-usa-europe.png)
 
