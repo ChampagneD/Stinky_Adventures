@@ -7,7 +7,7 @@ Adventure and narrative game about a sheriff deputy who got to choose between mu
 ## Rules
 
 * The player move with arrow keys  
-* The player can interract with PNJs and object   
+* The player can interract with PNJs and objects   
 * The hear an off voice 
 * The player got a principal quest but can choose a different path  
 
