@@ -1,8 +1,6 @@
 var Phaser = Phaser || {};
 var Platformer = Platformer || {};
 
-var LevelMaze = true;
-
 var game = new Phaser.Game("100%", "100%", Phaser.CANVAS);
 game.state.add("BootState", new Platformer.BootState());
 game.state.add("LoadingState", new Platformer.LoadingState());

@@ -37,16 +37,16 @@ Platformer.Player.prototype.update = function () {
 
     // jump only if touching a tile
     if (this.cursors.up.isDown) {
-        this.body.velocity.y -= 100;
+        this.body.velocity.y -= this.walking_speed;
         this.animations.play("up");
     } else if (this.cursors.down.isDown) {
-        this.body.velocity.y += 100;
+        this.body.velocity.y += this.walking_speed;
         this.animations.play("down");
     } else if (this.cursors.left.isDown) {
-        this.body.velocity.x -= 100;
+        this.body.velocity.x -= this.walking_speed;
         this.animations.play("left");
     } else if (this.cursors.right.isDown) {
-        this.body.velocity.x += 100;
+        this.body.velocity.x += this.walking_speed;
         this.animations.play("right");
     } else {
         this.frame = 0;

@@ -79404,7 +79404,7 @@ Phaser.ScaleManager = function (game, width, height) {
         orientationFallback: null,
         noMargins: false,
         scrollTo: null,
-        forceMinimumDocumentHeight: false,
+        forceMinimumDocumentHeight: true,
         canExpandParent: true,
         clickTrampoline: ''
     };
