@@ -18,7 +18,7 @@ As a style we used pixel-art, something like this :
 
 ## CODE & API 
 
-This game is developed in **JavaScript** using **RPG JS**  
+This game is developed in **JavaScript** using **Phaser**  
 
 ## DATAS
 
@@ -27,7 +27,3 @@ windows-size screen
 #### Level 1
 
 One house, 2 possibilities
- 
-
-
- 

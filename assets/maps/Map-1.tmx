@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="14">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="400" columns="8">
+  <image source="../images/tileset.png" width="256" height="1600"/>
+  <tile id="3">
+   <animation>
+    <frame tileid="48" duration="100"/>
+    <frame tileid="49" duration="100"/>
+    <frame tileid="50" duration="100"/>
+    <frame tileid="104" duration="100"/>
+    <frame tileid="89" duration="100"/>
+    <frame tileid="90" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <layer name="background" width="20" height="15" visible="0">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <layer name="collision" width="20" height="15" visible="0">
+  <properties>
+   <property name="collision" type="bool" value="true"/>
+  </properties>
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,84,0,0,0,197,198,199,200,0,0,0,84,0,0,0,0,
+0,0,0,0,92,0,0,0,0,0,0,0,0,0,0,92,0,0,0,0,
+0,0,0,0,100,0,0,0,0,0,0,0,0,0,0,92,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="tile_layer2" width="20" height="15" visible="0">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,173,174,175,176,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,181,182,183,184,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,189,190,191,192,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="Calque d'objets 1">
+  <object id="12" name="player" type="player" gid="68" x="289" y="386" width="32" height="32">
+   <properties>
+    <property name="bouncing" type="int" value="0"/>
+    <property name="gravity" type="int" value="0"/>
+    <property name="group" value="players"/>
+    <property name="jumping_speed" type="int" value="0"/>
+    <property name="texture" value="player_spritesheet"/>
+    <property name="walking_speed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="13" name="goal" type="goal" gid="28" x="417" y="66" width="32" height="32">
+   <properties>
+    <property name="group" value="goals"/>
+    <property name="next_level" value="assets/levels/level1.json"/>
+    <property name="texture" value="goal_image"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
