@@ -3,23 +3,25 @@ var Platformer = Platformer || {};
 Platformer.Player = function (game_state, position, properties) {
     "use strict";
     Platformer.Prefab.call(this, game_state, position, properties);
-    
+
     this.walking_speed = +properties.walking_speed;
-    
+
     this.game_state.game.physics.arcade.enable(this);
     this.body.collideWorldBounds = true;
-    
+
     this.animations.add("up", [12, 13, 14, 15], 8, true);
     this.animations.add("down", [0, 1, 2, 3], 8, true);
     this.animations.add("left", [4, 5, 6, 7], 8, true);
     this.animations.add("right", [8, 9, 10, 11],8, false);
-    
+
     this.body.setSize(this.width/3, this.height/6, 10, 40);
     this.anchor.setTo(0.5);
 
     this.game.camera.follow(this);
-    
+
     this.cursors = this.game_state.game.input.keyboard.createCursorKeys();
+    this.actionKey = this.game_state.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
 };
 
 Platformer.Player.prototype = Object.create(Platformer.Prefab.prototype);
@@ -53,6 +55,7 @@ Platformer.Player.prototype.update = function () {
     }
 
 };
+
 
 Platformer.Player.prototype.hit_enemy = function (player, enemy) {
     "use strict";
