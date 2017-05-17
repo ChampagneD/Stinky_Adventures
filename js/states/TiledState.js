@@ -13,7 +13,7 @@ Platformer.TiledState.prototype.init = function (level_data) {
     "use strict";
     this.level_data = level_data;
     
-    this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
     
@@ -22,6 +22,7 @@ Platformer.TiledState.prototype.init = function (level_data) {
     
     // create map and set tileset
     this.map = this.game.add.tilemap(level_data.map.key);
+    console.log(this);
     this.map.addTilesetImage(this.map.tilesets[0].name, level_data.map.tileset);
 
 };
