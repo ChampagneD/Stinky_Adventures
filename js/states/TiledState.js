@@ -13,7 +13,7 @@ Platformer.TiledState.prototype.init = function (level_data) {
     "use strict";
     this.level_data = level_data;
     
-    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
     

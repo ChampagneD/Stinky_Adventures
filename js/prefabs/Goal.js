@@ -23,10 +23,6 @@ Platformer.Goal.prototype.update = function () {
 Platformer.Goal.prototype.reach_goal = function () {
     "use strict";
     // start the next level
-
-    this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
-    this.scale.pageAlignHorizontally = false;
-    this.scale.pageAlignVertically = false;
     
     // start physics system
     this.game.physics.startSystem(null);
