@@ -21,7 +21,7 @@ Platformer.Player = function (game_state, position, properties) {
 
     this.monState = this.game.state.getCurrentState()
 
-    this.mapState = this.monState.map.getTile(5, 1, 2);
+    this.mapState = this.monState.map.getTile(14, 8, 2);
 
 
 
@@ -74,7 +74,7 @@ Platformer.Player.prototype.update = function () {
 
         if (distance < 25) {
             
-            this.monState.map.removeTile(5, 1, 2);
+            this.monState.map.removeTile(14, 8, 2);
         }
 
 };
