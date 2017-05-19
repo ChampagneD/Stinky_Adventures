@@ -35,6 +35,8 @@ Platformer.LoadingState.prototype.preload = function () {
         }
     }
 
+    this.load.image('basetext', 'assets/images/paper-dialog_big.png');
+
 };
 
 Platformer.LoadingState.prototype.create = function () {

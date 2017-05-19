@@ -19,23 +19,13 @@ Platformer.Player = function (game_state, position, properties) {
 
     this.game.camera.follow(this);
 
+    // On récupére toutes les infos de TiledState
     this.monState = this.game.state.getCurrentState()
 
+    // On récupére toutes les infos de la tile a la case donnée
     this.mapState = this.monState.map.getTile(14, 8, 2);
-
-
-
-    console.log(this.monState);
     
     this.cursors = this.game_state.game.input.keyboard.createCursorKeys();
-
-    var styleDescritpion = {font: '35px Arial', fill: '#ff0000', align: 'center', fontWeight: 'bold', stroke: '#ffffff', strokeThickness: 0};
-    this.textArea = this.game.add.text(0, 0, "", styleDescritpion);
-    this.textArea.anchor.set(0.5);
-    this.textArea.fixedToCamera = true;
-    this.textArea.cameraOffset.x = 470;
-    this.textArea.cameraOffset.y = 560;
-    this.game.world.bringToTop(this.textArea);
 
 };
 
@@ -46,7 +36,6 @@ Platformer.Player.prototype.update = function () {
     "use strict";
 
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision);
-    this.game_state.game.physics.arcade.collide(this, this.game_state.groups.enemies, this.hit_enemy, null, this);
 
     this.body.velocity.x = 0;
     this.body.velocity.y = 0;
@@ -77,16 +66,4 @@ Platformer.Player.prototype.update = function () {
             this.monState.map.removeTile(14, 8, 2);
         }
 
-};
-
-Platformer.Player.prototype.hit_enemy = function (player, enemy) {
-    "use strict";
-    // if the player is above the enemy, the enemy is killed, otherwise the player dies
-    if (enemy.body.touching.up) {
-        enemy.kill();
-        player.y -= this.bouncing;
-    } else {
-        this.music_fond.destroy();
-        this.game_state.restart_level();
-    }
 };

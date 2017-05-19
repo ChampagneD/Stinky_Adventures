@@ -2,7 +2,7 @@ var Platformer = Platformer || {};
 
 Platformer.FlyingEnemy = function (game_state, position, properties) {
     "use strict";
-    Platformer.Enemy.call(this, game_state, position, properties);
+    Platformer.Dialogue.call(this, game_state, position, properties);
     
     // flying enemies are not affected by gravity
     this.body.allowGravity = false;
@@ -11,5 +11,5 @@ Platformer.FlyingEnemy = function (game_state, position, properties) {
     this.animations.play("flying");
 };
 
-Platformer.FlyingEnemy.prototype = Object.create(Platformer.Enemy.prototype);
+Platformer.FlyingEnemy.prototype = Object.create(Platformer.Dialogue.prototype);
 Platformer.FlyingEnemy.prototype.constructor = Platformer.FlyingEnemy;

@@ -22,8 +22,27 @@ Platformer.TiledState.prototype.init = function (level_data) {
     
     // create map and set tileset
     this.map = this.game.add.tilemap(level_data.map.key);
-    console.log(this);
     this.map.addTilesetImage(this.map.tilesets[0].name, level_data.map.tileset);
+
+    this.nb_dialogue = 1;
+
+    //This variable define the step of the dialogue
+    this.storypos=0;
+            
+            
+    //The array for the text
+    this.storyText = new Array();
+            
+    // The text is from Shakespeare's "As You Like It"
+    this.storyText[0]="Go apart, Adam, and thou shalt\n hear how he will shake me up.";
+    this.storyText[1]="Now, sir! what make you here?";
+    this.storyText[2]="Nothing: I am not taught to make any thing.";
+    this.storyText[3]="What mar you then, sir?";
+    this.storyText[4]="Marry, sir, I am helping you to mar\n that which God made, a poor unworthy brother\n of yours, with idleness.";
+    this.storyText[5]="Marry, sir, be better employed, and be naught awhile.";
+    this.storyText[6]="Shall I keep your hogs and eat husks\n with them? What prodigal portion have I spent,\n that I should come to such penury?";
+    this.storyText[7]="Know you where your are, sir?";
+    this.storyText[8]="O, sir, very well; here in your orchard.";
 
 };
 
@@ -66,6 +85,47 @@ Platformer.TiledState.prototype.create = function () {
             this.map.objects[object_layer].forEach(this.create_object, this);
         }
     }
+
+/********************************* DIALOGUE ***************************************/
+
+    if (this.nb_dialogue == 1) {
+
+        //The base where we'll write the dialogue (eg. an ancient paper)
+        this.basetext = this.add.sprite(50, this.game.height - 70, 'basetext');
+        this.physics.arcade.enableBody(this.basetext);
+        this.basetext.scale.setTo(0.4);
+        this.basetext.anchor.setTo(0, 0);
+        this.basetext.fixedToCamera = true;
+
+
+        //Here we draw the text
+        var styleDescritpion = {font: '11px Arial', fill: 'red', fontWeight: 'bold', stroke: '#000000', strokeThickness: 0, wordWrap: true, wordWrapWidth: this.basetext.width, maxLines: 3};
+        this.textArea = this.game.add.text(0, 0, "", styleDescritpion);
+        this.textArea.fixedToCamera = true;
+        this.textArea.resolution = 1;
+        this.textArea.setTextBounds(this.basetext.x + 20, this.basetext.y + 10, this.basetext.width - 10, this.basetext.height - 10);
+        this.game.world.bringToTop(this.textArea);
+        console.log(this.basetext);
+
+        this.nb_dialogue++;
+
+        this.game.debug.geom(this.textArea.textBounds);
+
+        //Here we write the text
+        this.game.time.events.loop(3000, function () {
+
+            //The text change with the step
+            this.textArea.text = this.storyText[this.storypos];
+            
+            //The step increase
+            this.storypos = Math.abs(this.storypos + 1);
+            
+            //The text is on top (on Z axis)
+            this.world.bringToTop(this.textArea);
+            
+       }
+       , this);
+    }
 };
 
 Platformer.TiledState.prototype.create_object = function (object) {
@@ -88,6 +148,7 @@ Platformer.TiledState.prototype.create_object = function (object) {
         prefab = new Platformer.Goal(this, position, object.properties);
         break;
     }
+
     this.prefabs[object.name] = prefab;
 };
 
