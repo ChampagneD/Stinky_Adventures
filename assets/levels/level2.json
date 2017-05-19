@@ -1,0 +1,17 @@
+{
+    "assets": {
+        "map_tiles": { "type": "image", "source": "assets/images/tilesetueue.png" },
+        "player_spritesheet": { "type": "spritesheet", "source": "assets/images/event1.png", "frame_width": 32, "frame_height": 48, "frames": 15, "margin": 0, "spacing": 0 },
+        "goal_image": { "type": "image", "source": "assets/images/goal_transparent.png" },
+        "level_tilemap": { "type": "tilemap", "source": "assets/maps/level2_map.json" }
+    },
+    "groups": [
+        "enemies",
+        "goals",
+        "players"
+    ],
+    "map": {
+        "key": "level_tilemap",
+        "tileset": "map_tiles"
+    }
+}

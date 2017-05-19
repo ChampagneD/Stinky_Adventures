@@ -24,11 +24,10 @@ Platformer.TiledState.prototype.init = function (level_data) {
     this.map = this.game.add.tilemap(level_data.map.key);
     this.map.addTilesetImage(this.map.tilesets[0].name, level_data.map.tileset);
 
-    this.nb_dialogue = 1;
-
     //This variable define the step of the dialogue
     this.storypos=0;
-            
+    
+    this.audio == true;
             
     //The array for the text
     this.storyText = new Array();
@@ -43,7 +42,7 @@ Platformer.TiledState.prototype.init = function (level_data) {
     this.storyText[6]="Shall I keep your hogs and eat husks\n with them? What prodigal portion have I spent,\n that I should come to such penury?";
     this.storyText[7]="Know you where your are, sir?";
     this.storyText[8]="O, sir, very well; here in your orchard.";
-
+    this.storyText[9]="O, sir, very well; here in your orchard.";
 };
 
 Platformer.TiledState.prototype.create = function () {
@@ -86,50 +85,13 @@ Platformer.TiledState.prototype.create = function () {
         }
     }
 
-/********************************* DIALOGUE ***************************************/
+    this.events(1);
 
-    if (this.nb_dialogue == 1) {
-
-        //The base where we'll write the dialogue (eg. an ancient paper)
-        this.basetext = this.add.sprite(50, this.game.height - 70, 'basetext');
-        this.physics.arcade.enableBody(this.basetext);
-        this.basetext.scale.setTo(0.4);
-        this.basetext.anchor.setTo(0, 0);
-        this.basetext.fixedToCamera = true;
-
-
-        //Here we draw the text
-        var styleDescritpion = {font: '11px Arial', fill: 'red', fontWeight: 'bold', stroke: '#000000', strokeThickness: 0, wordWrap: true, wordWrapWidth: this.basetext.width, maxLines: 3};
-        this.textArea = this.game.add.text(0, 0, "", styleDescritpion);
-        this.textArea.fixedToCamera = true;
-        this.textArea.resolution = 1;
-        this.textArea.setTextBounds(this.basetext.x + 20, this.basetext.y + 10, this.basetext.width - 10, this.basetext.height - 10);
-        this.game.world.bringToTop(this.textArea);
-        console.log(this.basetext);
-
-        this.nb_dialogue++;
-
-        this.game.debug.geom(this.textArea.textBounds);
-
-        //Here we write the text
-        this.game.time.events.loop(3000, function () {
-
-            //The text change with the step
-            this.textArea.text = this.storyText[this.storypos];
-            
-            //The step increase
-            this.storypos = Math.abs(this.storypos + 1);
-            
-            //The text is on top (on Z axis)
-            this.world.bringToTop(this.textArea);
-            
-       }
-       , this);
-    }
 };
 
 Platformer.TiledState.prototype.create_object = function (object) {
     "use strict";
+
     var position, prefab;
     // tiled coordinates starts in the bottom left corner
     position = {"x": object.x + (this.map.tileHeight / 2), "y": object.y - (this.map.tileHeight / 2)};
@@ -156,3 +118,71 @@ Platformer.TiledState.prototype.restart_level = function () {
     "use strict";
     this.game.state.restart(true, false, this.level_data);
 };
+
+
+    /********************************* DIALOGUE ***************************************/
+
+Platformer.TiledState.prototype.events = function(nb_dialogue){
+
+    if (nb_dialogue == 1) {
+
+        console.log(this);
+
+        //The base where we'll write the dialogue (eg. an ancient paper)
+        this.basetext = this.add.sprite(50, this.game.height - 80, 'basetext');
+        this.game.physics.arcade.enableBody(this.basetext);
+        this.basetext.scale.setTo(0.4);
+        this.basetext.anchor.setTo(0, 0);
+        this.basetext.fixedToCamera = true;
+
+
+        //Here we draw the text area
+        var styleDescritpion = {font: '11px Arial', fill: 'red', fontWeight: 'bold', stroke: '#000000', strokeThickness: 0, wordWrap: true, wordWrapWidth: this.basetext.width, maxLines: 3};
+        this.textArea = this.game.add.text(0, 0, "", styleDescritpion);
+        this.textArea.fixedToCamera = true;
+        this.textArea.resolution = 1;
+        this.textArea.setTextBounds(this.basetext.x + 20, this.basetext.y + 10, this.basetext.width - 10, this.basetext.height - 10);
+        this.game.world.bringToTop(this.textArea);
+
+        this.game.debug.geom(this.textArea.textBounds);
+
+        console.log(this.storyText);
+
+        //Here we write the text
+        this.game.time.events.repeat(3000, this.storyText.length,function () {
+
+            if (this.audio == true) {
+
+            }
+
+            //The text change with the step
+            this.textArea.text = this.storyText[this.storypos];
+            
+            //The step increase
+            this.storypos = Math.abs(this.storypos + 1);
+            
+            //The text is on top (on Z axis)
+            this.game.world.bringToTop(this.textArea);
+            
+            this.audio == false;
+       }
+       , this);
+
+        //Here 
+        this.game.time.events.onComplete.add(function() {
+
+            this.basetext.kill();
+            this.textArea.kill();
+
+        }, this);
+    }
+
+};
+
+
+
+
+
+
+
+

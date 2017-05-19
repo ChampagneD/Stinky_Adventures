@@ -23,6 +23,8 @@ Platformer.BootState.prototype.create = function () {
     "use strict";
     var level_text, level_data;
     level_text = this.game.cache.getText("level"+ window.i);
+
     level_data = JSON.parse(level_text);
+    console.log(level_data);
     this.game.state.start("LoadingState", true, false, level_data);
 };

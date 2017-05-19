@@ -37,6 +37,12 @@ Platformer.Player.prototype.update = function () {
 
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision);
 
+    if (this.game.time.events.paused == true) {
+
+        this.monState.basetext.kill();
+        this.monState.textArea.kill();
+    }
+
     this.body.velocity.x = 0;
     this.body.velocity.y = 0;
 
@@ -57,6 +63,14 @@ Platformer.Player.prototype.update = function () {
         this.animations.stop(true, false);
     }
 
+    this.trackEvents();
+
+};
+
+//Check if there is an event
+
+Platformer.Player.prototype.trackEvents = function() {
+
     //this.map = this.cache.getTileMapData('Layer3')
     var distance = this.game.math.distance(this.mapState.worldX, this.mapState.worldY,
         this.x, this.y);
@@ -64,6 +78,23 @@ Platformer.Player.prototype.update = function () {
         if (distance < 25) {
             
             this.monState.map.removeTile(14, 8, 2);
-        }
 
+            this.monState.map.removeTile(17, 10, 1);
+            this.monState.map.removeTile(18, 10, 1);
+            this.monState.map.removeTile(19, 10, 1);
+            this.monState.map.removeTile(20, 10, 1);
+
+            this.monState.map.removeTile(17, 11, 1);
+            this.monState.map.removeTile(18, 11, 1);
+            this.monState.map.removeTile(19, 11, 1);
+            this.monState.map.removeTile(20, 11, 1);
+        }
 };
+
+
+
+
+
+
+
+
