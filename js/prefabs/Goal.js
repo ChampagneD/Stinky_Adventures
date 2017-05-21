@@ -28,6 +28,7 @@ Platformer.Goal.prototype.reach_goal = function () {
     this.game.physics.startSystem(null);
     this.game.physics.arcade.gravity.y = 0;
     window.i++;
-    this.game_state.game.state.start("BootState", true, false, window.next_level);
+    this.game_state.mySound.destroy();
+    this.game_state.game.state.start("BootState", true, false, window.next_level, "assets/script/script"+window.i+".json");
 };
 
