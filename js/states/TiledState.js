@@ -117,8 +117,6 @@ Platformer.TiledState.prototype.restart_level = function () {
 
 Platformer.TiledState.prototype.dialog = function(){
 
-    if (window.i == 1) {
-
         //The base where we'll write the dialogue (eg. an ancient paper)
         this.basetext = this.add.sprite(50, this.game.height - 80, 'basetext');
         this.game.physics.arcade.enableBody(this.basetext);
@@ -169,6 +167,5 @@ Platformer.TiledState.prototype.dialog = function(){
             this.textArea.kill();
 
         }, this);
-    }
 
 };

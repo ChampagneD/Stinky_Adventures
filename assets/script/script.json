@@ -1,0 +1,43 @@
+﻿[
+  {
+    "pid": 1,
+    "position": {
+      "x": 601,
+      "y": 99
+    },
+    "name": "level1",
+    "tags": [
+      ""
+    ],
+    "content": "Hello you, yes you, there is no one else here little genius so yes i’m talking to you, well, let me explain you the situation, hmm actually nop i don’t want to i’m sure you can see what’s wrong here, oh pizzas ! If you got problems to succeed something this simple you can get one and watch a video or two on the PC  [[lien level 2|level2]]",
+    "childrenNames": [
+      "[[lien level 2|level2]]"
+    ]
+  },
+  {
+    "pid": 2,
+    "position": {
+      "x": 870,
+      "y": 104
+    },
+    "name": "level2",
+    "tags": [
+      "level2"
+    ],
+    "content": "Here is the script of the lvl 2 ",
+    "childrenNames": []
+  },
+  {
+    "pid": 3,
+    "position": {
+      "x": 570,
+      "y": 251
+    },
+    "name": "level2Straight",
+    "tags": [
+      ""
+    ],
+    "content": "Double-click this passage to edit it.@",
+    "childrenNames": []
+  }
+]
