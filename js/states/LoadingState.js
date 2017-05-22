@@ -11,7 +11,7 @@ Platformer.prototype.constructor = Platformer.LoadingState;
 
 Platformer.LoadingState.prototype.init = function (level_data, script_data) {
     "use strict";
-    window.level_data = level_data;
+    this.level_data = level_data;
 
     this.script_data = script_data;
 };
@@ -19,7 +19,7 @@ Platformer.LoadingState.prototype.init = function (level_data, script_data) {
 Platformer.LoadingState.prototype.preload = function () {
     "use strict";
     var assets, asset_loader, asset_key, asset;
-    assets = window.level_data.assets;
+    assets = this.level_data.assets;
     for (asset_key in assets) { // load assets according to asset key
         if (assets.hasOwnProperty(asset_key)) {
             asset = assets[asset_key];
@@ -45,6 +45,6 @@ Platformer.LoadingState.prototype.preload = function () {
 Platformer.LoadingState.prototype.create = function () {
     "use strict";
 
-    this.game.state.start('GameState', true, false, window.level_data, this.script_data);
+    this.game.state.start('GameState', true, false, this.level_data, this.script_data);
 
 };
