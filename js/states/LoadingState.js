@@ -46,8 +46,6 @@ Platformer.LoadingState.prototype.preload = function () {
 
 Platformer.LoadingState.prototype.create = function () {
     "use strict";
-
-
     this.game.state.start('menuState', true, false, this.level_data, this.script_data);
 
 };

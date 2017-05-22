@@ -74,11 +74,10 @@ Platformer.TiledState.prototype.create = function () {
     }
 
     // Here we cut the content string from the json into an array
+    this.storyText = this.script_data[0].content.replace(/.[^\,!.]{1,100}\S*\s*/g, "$&@").split(/\s+@/)
 
-    this.storyText = this.script_data[0].content.replace(/.[^\,!.]{1,100}\S*\s*/g, "$&@").split(/\s+@/);
 
     // Here we call the dialog fonction
-
     this.dialog();
 
 };

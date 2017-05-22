@@ -38,4 +38,5 @@ Platformer.BootState.prototype.create = function () {
     script_data = JSON.parse(script_text);
 
     this.game.state.start("LoadingState", true, false, level_data, script_data);
+
 };
