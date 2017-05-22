@@ -14,10 +14,16 @@ Platformer.menuState.prototype.init = function (level_data, script_data) {
     this.level_data = level_data;
     this.script_data = script_data;
 
+    console.log("1");
+
+    if (window.played == true) {
+
+      this.game.state.start('GameState', true, false, this.level_data, this.script_data);
+    }
+
 };
 
 Platformer.menuState.prototype.create = function() {
-
 
    var style = { font: "65px Arial", fill: "#ff0044", align: "center" };
 
@@ -48,6 +54,7 @@ Platformer.menuState.prototype.create = function() {
 
 Platformer.menuState.prototype.start = function(menu_State) {
       game.stage.backgroundColor = '#000000';
+      window.played = true;
       this.game.state.start('GameState', true, false, this.level_data, this.script_data);
       // menu_music.stop();
    };
