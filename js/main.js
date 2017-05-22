@@ -3,7 +3,7 @@ var Platformer = Platformer || {};
 
 window.i = 1;
 
-window.played = false;
+window.menuPlayed = false;
 
 var game = new Phaser.Game( 480, 360, Phaser.CANVAS);
 game.state.add("BootState", new Platformer.BootState());

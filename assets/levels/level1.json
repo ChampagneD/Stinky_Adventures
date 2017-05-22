@@ -13,5 +13,8 @@
     "map": {
         "key": "level_tilemap",
         "tileset": "map_tiles"
+    },
+    "scriptIndex": {
+        "index": 0
     }
 }

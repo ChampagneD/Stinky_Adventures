@@ -26,7 +26,7 @@ Platformer.TiledState.prototype.init = function (level_data, script_data) {
     //This variable define the step of the dialogue
     this.storypos=0;
 
-    this.mySound = this.add.audio('script'+window.i);
+    this.mySound = this.add.audio('script1');
 
     //The array for the text
     this.storyText = new Array();
@@ -74,7 +74,7 @@ Platformer.TiledState.prototype.create = function () {
     }
 
     // Here we cut the content string from the json into an array
-    this.storyText = this.script_data[0].content.replace(/.[^\,!.]{1,100}\S*\s*/g, "$&@").split(/\s+@/)
+    this.storyText = this.script_data[this.level_data.scriptIndex.index].content.replace(/.[^\,!.]{1,100}\S*\s*/g, "$&@").split(/\s+@/)
 
 
     // Here we call the dialog fonction

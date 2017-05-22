@@ -6,7 +6,7 @@
          "name":"background",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":30,
          "x":0,
          "y":0
@@ -36,7 +36,7 @@
          "name":"Layer3",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":30,
          "x":0,
          "y":0
@@ -96,7 +96,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":0,
          "x":0,
          "y":0
@@ -117,6 +117,45 @@
          "spacing":0,
          "tilecount":2976,
          "tileheight":16,
+         "tiles":
+            {
+             "228":
+                {
+                 "animation":[
+                        {
+                         "duration":500,
+                         "tileid":816
+                        }, 
+                        {
+                         "duration":500,
+                         "tileid":848
+                        }, 
+                        {
+                         "duration":500,
+                         "tileid":849
+                        }, 
+                        {
+                         "duration":500,
+                         "tileid":817
+                        }, 
+                        {
+                         "duration":500,
+                         "tileid":818
+                        }, 
+                        {
+                         "duration":500,
+                         "tileid":850
+                        }, 
+                        {
+                         "duration":500,
+                         "tileid":851
+                        }, 
+                        {
+                         "duration":500,
+                         "tileid":819
+                        }]
+                }
+            },
          "tilewidth":16
         }],
  "tilewidth":16,

@@ -2,8 +2,20 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="23" tilewidth="16" tileheight="16" nextobjectid="11">
  <tileset firstgid="1" name="tileset" tilewidth="16" tileheight="16" tilecount="2976" columns="32">
   <image source="../images/tilesetueue.png" width="512" height="1488"/>
+  <tile id="228">
+   <animation>
+    <frame tileid="816" duration="500"/>
+    <frame tileid="848" duration="500"/>
+    <frame tileid="849" duration="500"/>
+    <frame tileid="817" duration="500"/>
+    <frame tileid="818" duration="500"/>
+    <frame tileid="850" duration="500"/>
+    <frame tileid="851" duration="500"/>
+    <frame tileid="819" duration="500"/>
+   </animation>
+  </tile>
  </tileset>
- <layer name="background" width="30" height="23" visible="0">
+ <layer name="background" width="30" height="23">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -60,7 +72,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Layer3" width="30" height="23" visible="0">
+ <layer name="Layer3" width="30" height="23">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -87,7 +99,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="obect_layer" visible="0">
+ <objectgroup name="obect_layer">
   <object id="9" name="player" type="player" gid="615" x="149.667" y="232.333" width="16" height="16">
    <properties>
     <property name="group" value="players"/>

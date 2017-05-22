@@ -4,7 +4,7 @@ Platformer.Goal = function (game_state, position, properties) {
     "use strict";
     Platformer.Prefab.call(this, game_state, position, properties);
     
-    window.next_level = properties.next_level;
+    this.next_level = properties.next_level;
     
     this.game_state.game.physics.arcade.enable(this);
     
@@ -29,6 +29,6 @@ Platformer.Goal.prototype.reach_goal = function () {
     this.game.physics.arcade.gravity.y = 0;
     window.i++;
     this.game_state.mySound.destroy();
-    this.game_state.game.state.start("BootState", true, false, window.next_level, "assets/script/script"+window.i+".json");
+    this.game_state.game.state.start("BootState", true, false, this.next_level, "assets/script/script1.json");
 };
 
