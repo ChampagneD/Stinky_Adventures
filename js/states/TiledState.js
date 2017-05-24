@@ -80,6 +80,14 @@ Platformer.TiledState.prototype.create = function () {
     // Here we call the dialog fonction
     this.dialog();
 
+    // Here we create and draw the tileSprite
+    this.myTiledSprite = this.add.tileSprite(200, 200, 32, 32, 'tileSprite', 2);
+
+    this.myTiledSprite.animations.add('animateTiled', [3, 4, 5 ,6]);
+
+    console.log(this.myTiledSprite.animations.currentFrame.index);
+
+    this.myTiledSprite.animations.play('animateTiled', 3, true);
 };
 
 Platformer.TiledState.prototype.create_object = function (object) {
@@ -131,8 +139,6 @@ Platformer.TiledState.prototype.dialog = function(){
         this.textArea.resolution = 1;
         this.textArea.setTextBounds(this.basetext.x + 20, this.basetext.y + 10, this.basetext.width - 10, this.basetext.height - 10);
         this.game.world.bringToTop(this.textArea);
-
-        this.game.debug.geom(this.textArea.textBounds);
 
         this.mySound.play();
 

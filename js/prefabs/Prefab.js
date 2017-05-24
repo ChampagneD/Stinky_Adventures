@@ -14,8 +14,3 @@ Platformer.Prefab = function (game_state, position, properties) {
 
 Platformer.Prefab.prototype = Object.create(Phaser.Sprite.prototype);
 Platformer.Prefab.prototype.constructor = Platformer.Prefab;
-
-
-Platformer.Prefab.prototype.init = function(){
-
-}
