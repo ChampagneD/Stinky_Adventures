@@ -83,4 +83,5 @@ Platformer.Player.prototype.removeTile = function(layer, dtile_x, dtile_y, dtile
 
     if (dtile8_x && dtile8_y) this.monState.map.removeTile(dtile8_x, dtile8_y, layer);
 
+    return true;
 };

@@ -70,8 +70,23 @@ Platformer.Player.prototype.update = function () {
 
     if (window.i == 2) {
 
-        // EventReplaceTile is executed and if it return true them we start this.removeTile        
-        this.eventReplaceTile(4,41,1, 3105,2977, 3110,2980, 3169,3041, 3174,3044) && this.removeTile(1, 23,41, 24,41, 25,41, 26,41, 23,42, 24,42, 25,42, 26,42);
-    }
+        // EventReplaceTile is executed and if it return true them we start this.removeTile
+        if (this.eventReplaceTile(4,41,1, 3105,2977, 3110,2980, 3169,3041, 3174,3044)) {
 
+            if (this.removeTile(1, 23,41, 24,41, 25,41, 26,41, 23,42, 24,42, 25,42, 26,42)) {
+                    
+                this.game.time.events.removeAll();
+
+                // Here we cut the content string from the json into an array
+                
+                this.monState.storyText = [];
+                this.monState.storyText = this.monState.script_data[this.monState.level_data.scriptIndex.index].children[0].content.replace(/.[^\,!.]{1,100}\S*\s*/g, "$&@").split(/\s+@/);
+
+                this.monState.storypos = 0;
+                // Here we call the dialog fonction
+                this.monState.dialog();
+                console.log(this.game.time.events);
+            }
+        }
+    }
 };
