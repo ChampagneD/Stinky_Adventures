@@ -9,6 +9,9 @@ Platformer.Goal = function (game_state, position, properties) {
     this.game_state.game.physics.arcade.enable(this);
     
     this.anchor.setTo(0.5);
+
+    // On récupére toutes les infos de TiledState
+    this.monState = this.game.state.getCurrentState();
 };
 
 Platformer.Goal.prototype = Object.create(Platformer.Prefab.prototype);
@@ -28,6 +31,7 @@ Platformer.Goal.prototype.reach_goal = function () {
     this.game.physics.startSystem(null);
     this.game.physics.arcade.gravity.y = 0;
     window.i++;
+    this.monState.nb_event = true;
     this.game_state.mySound.destroy();
     this.game_state.game.state.start("BootState", true, false, this.next_level, "assets/script/script1.json");
 };

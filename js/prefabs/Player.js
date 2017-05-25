@@ -16,12 +16,11 @@ Platformer.Player = function (game_state, position, properties) {
 
     this.body.setSize(this.width/3, this.height/6, 10, 40);
     this.anchor.setTo(0.5);
-    this.event = true;
     this.nb_event = true;
 
     this.game.camera.follow(this);
 
-    // On récupére toutes les infos de TiledState
+    // Get the current state so that we have every game object
     this.monState = this.game.state.getCurrentState();
 
     this.cursors = this.game_state.game.input.keyboard.createCursorKeys();
@@ -63,9 +62,16 @@ Platformer.Player.prototype.update = function () {
         this.animations.stop(true, false);
     }
 
-    if (window.i == 1 && this.event == true) {
-        this.trackEvents(14, 8, 2, 12, 8, 2, 17, 10, 1, 18, 10, 1, 19, 10, 1, 17, 11, 1, 18, 11, 1, 19, 11, 1);
+    if (window.i == 1) {
 
+        // TrackEvents check if the player is near an event and then launch it
+        this.trackEvents(14,8,2, 12,8,2) && this.removeTile(1, 17,10, 18,10, 19,10, 17,11, 18,11, 19,11);
+    }
+
+    if (window.i == 2) {
+
+        // EventReplaceTile is executed and if it return true them we start this.removeTile        
+        this.eventReplaceTile(4,41,1, 3105,2977, 3110,2980, 3169,3041, 3174,3044) && this.removeTile(1, 23,41, 24,41, 25,41, 26,41, 23,42, 24,42, 25,42, 26,42);
     }
 
 };
