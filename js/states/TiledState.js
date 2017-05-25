@@ -31,6 +31,8 @@ Platformer.TiledState.prototype.init = function (level_data, script_data) {
     //The array for the text
     this.storyText = new Array();
 
+    this.stopText = false;
+
 };
 
 Platformer.TiledState.prototype.create = function () {
@@ -150,10 +152,57 @@ Platformer.TiledState.prototype.dialog = function(){
         this.game.world.bringToTop(this.textArea);
 
         //Here we write the text
-        this.game.time.events.repeat(3000, this.storyText.length - 1,function () {
+        
+        if ((this.storyText.length - 1) == 2) {
+
+            this.myTimer = this.game.time.create(false);
+            this.myTimer.start();
+            //Here we kill the text and the text sprite
+            this.myTimer.onComplete.add(function() {
+
+                this.basetext.kill();
+                this.textArea.kill();
+                this.storypos = 0;
+
+            }, this);
+            this.myTimer.add(3000, function(){
+
+                //The text change with the step
+                    this.textArea.text = this.storyText[this.storypos];
+
+                    //The step increase
+                    this.storypos = Math.abs(this.storypos + 1);
+
+                //The text is on top (on Z axis)
+                    this.game.world.bringToTop(this.textArea);
+
+            }, this);            
+
+        } else if ((this.storyText.length - 1) > 2) {
+
+            this.monTimer = this.game.time.create(false);
+            this.monTimer.start();
+            //Here we kill the text and the text sprite
+            this.monTimer.onComplete.add(function() {
+
+                this.basetext.kill();
+                this.textArea.kill();
+                this.storypos = 0;
+
+            }, this);
+            this.monTimer.repeat(3000, this.storyText.length - 1,function () {
 
             //The text change with the step
-            this.textArea.text = this.storyText[this.storypos];
+            
+            if (this.storypos > (this.storyText.length - 1)){
+
+                console.log(this.basetext.kill)
+                this.basetext.kill();
+                this.textArea.kill();
+                this.storypos = 0;
+                return true;
+            } 
+            else this.textArea.text = this.storyText[this.storypos];
 
             //The step increase
             this.storypos = Math.abs(this.storypos + 1);
@@ -161,15 +210,8 @@ Platformer.TiledState.prototype.dialog = function(){
             //The text is on top (on Z axis)
             this.game.world.bringToTop(this.textArea);
 
-       }
-       , this);
-
-        //Here
-        this.game.time.events.onComplete.add(function() {
-
-            this.basetext.kill();
-            this.textArea.kill();
-
-        }, this);
+           }
+           , this);  
+        }
 
 };

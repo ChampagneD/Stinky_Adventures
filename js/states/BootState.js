@@ -18,7 +18,7 @@ Platformer.BootState.prototype.init = function (level_file, script_file) {
 Platformer.BootState.prototype.preload = function () {
     "use strict";
     this.load.text("level"+window.i, this.level_file);
-    this.load.text("script"+window.i, this.script_file);
+    this.load.text("script", this.script_file);
 };
 
 Platformer.BootState.prototype.create = function () {
@@ -33,7 +33,7 @@ Platformer.BootState.prototype.create = function () {
 
     level_data = JSON.parse(level_text);
 
-    script_text = this.game.cache.getText("script"+window.i);
+    script_text = this.game.cache.getText("script");
 
     script_data = JSON.parse(script_text);
 

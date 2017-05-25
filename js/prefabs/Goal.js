@@ -27,12 +27,10 @@ Platformer.Goal.prototype.reach_goal = function () {
     "use strict";
     // start the next level
     
-    // start physics system
-    this.game.physics.startSystem(null);
-    this.game.physics.arcade.gravity.y = 0;
+    // disable physics system
     window.i++;
     this.monState.nb_event = true;
     this.game_state.mySound.destroy();
-    this.game_state.game.state.start("BootState", true, false, this.next_level, "assets/script/script1.json");
+    this.game_state.game.state.start("BootState", true, false, this.next_level, "assets/script/script.json");
 };
 

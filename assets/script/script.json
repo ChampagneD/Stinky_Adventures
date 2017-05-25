@@ -1,0 +1,64 @@
+﻿[
+    {
+        "pid": 1,
+        "position": {
+            "x": 625,
+            "y": 296
+        },
+        "name": "level_1",
+        "tags": [
+            ""
+        ],
+        "content": "Hello you, yes you, there is no one else here little genius so yes i’m talking to you, well, let me explain you the situation, hmm actually nop i don’t want to , i’m sure you can see what’s wrong here, oh pizzas ! If you got problems to succeed something this simple you can get one and watch a video or two on the PC ",
+        "childrenNames": [],
+        "children": []
+    },
+    {
+        "pid": 2,
+        "position": {
+            "x": 860,
+            "y": 396
+        },
+        "name": "level2_start",
+        "tags": [
+            ""
+        ],
+        "content": "You are in a good place here. We will take time to get to know each others, you are Sadami Haraguchi it’s correct ?  Maybe you thought you were on a mission, that your secretary called you to visit a mother’s house. You don’t say ! Laugh You’ll work for me a litte right now, okey ? You see these lasers ? Go take the garbage in the box and I’ll open the path. [[level2_choice1]] [[level2_choice2]]",
+        "childrenNames": [
+            "[[level2_choice1]]",
+            "[[level2_choice2]]"
+        ],
+        "children": [
+            {
+                "pid": 4,
+                "position": {
+                    "x": 967,
+                    "y": 551
+                },
+                "name": "level2_choice1",
+                "tags": [
+                    ""
+                ],
+                "content": "Very well ! You learn fast ! ",
+                "childrenNames": [],
+                "parentId": 2,
+                "children": []
+            },
+            {
+                "pid": 3,
+                "position": {
+                    "x": 757,
+                    "y": 559
+                },
+                "name": "level2_choice2",
+                "tags": [
+                    ""
+                ],
+                "content": "Oh, you swtiched the light ? You’re so cute, aaaand, you’re right ! This type of glow is perfect for this room !",
+                "childrenNames": [],
+                "parentId": 2,
+                "children": []
+            }
+        ]
+    }
+]
