@@ -85,8 +85,6 @@ Platformer.TiledState.prototype.create = function () {
 
     this.myTiledSprite.animations.add('animateTiled', [3, 4, 5 ,6]);
 
-    console.log(this.myTiledSprite.animations.currentFrame.index);
-
     this.myTiledSprite.animations.play('animateTiled', 3, true);
 };
 
