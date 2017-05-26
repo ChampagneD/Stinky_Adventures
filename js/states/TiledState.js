@@ -28,6 +28,8 @@ Platformer.TiledState.prototype.init = function (level_data, script_data) {
 
     this.mySound = this.add.audio('script1');
 
+    this.eventSound = this.add.audio("event");
+
     //The array for the text
     this.storyText = new Array();
 
@@ -83,11 +85,11 @@ Platformer.TiledState.prototype.create = function () {
     this.dialog();
 
     // Here we create and draw the tileSprite
-    this.myTiledSprite = this.add.tileSprite(200, 200, 32, 32, 'tileSprite', 2);
+    //this.myTiledSprite = this.add.tileSprite(200, 200, 32, 32, 'tileSprite', 2);
 
-    this.myTiledSprite.animations.add('animateTiled', [3, 4, 5 ,6]);
+    //this.myTiledSprite.animations.add('animateTiled', [3, 4, 5 ,6]);
 
-    this.myTiledSprite.animations.play('animateTiled', 3, true);
+    //this.myTiledSprite.animations.play('animateTiled', 3, true);
 };
 
 Platformer.TiledState.prototype.create_object = function (object) {
@@ -152,66 +154,35 @@ Platformer.TiledState.prototype.dialog = function(){
         this.game.world.bringToTop(this.textArea);
 
         //Here we write the text
-        
-        if ((this.storyText.length - 1) == 2) {
 
-            this.myTimer = this.game.time.create(false);
-            this.myTimer.start();
-            //Here we kill the text and the text sprite
-            this.myTimer.onComplete.add(function() {
+        this.monTimer = this.game.time.create(true);
+        this.monTimer.start();
+        //Here we kill the text and the text sprite
+        this.monTimer.onComplete.add(function() {
 
-                this.basetext.kill();
-                this.textArea.kill();
-                this.storypos = 0;
+            this.basetext.kill();
+            this.textArea.kill();
+            this.storypos = 0;
 
-            }, this);
-            this.myTimer.add(3000, function(){
+        }, this);
+        this.monTimer.repeat(3000, this.storyText.length - 1,function () {
 
-                //The text change with the step
-                    this.textArea.text = this.storyText[this.storypos];
+        //The text change with the step
+        this.textArea.text = this.storyText[this.storypos];
 
-                    //The step increase
-                    this.storypos = Math.abs(this.storypos + 1);
+        //The step increase
+        this.storypos = Math.abs(this.storypos + 1);
 
-                //The text is on top (on Z axis)
-                    this.game.world.bringToTop(this.textArea);
+        //The text is on top (on Z axis)
+        this.game.world.bringToTop(this.textArea);
 
-            }, this);            
+       }
+       , this);  
 
-        } else if ((this.storyText.length - 1) > 2) {
+};
 
-            this.monTimer = this.game.time.create(false);
-            this.monTimer.start();
-            //Here we kill the text and the text sprite
-            this.monTimer.onComplete.add(function() {
+Platformer.TiledState.prototype.render = function() {
 
-                this.basetext.kill();
-                this.textArea.kill();
-                this.storypos = 0;
 
-            }, this);
-            this.monTimer.repeat(3000, this.storyText.length - 1,function () {
-
-            //The text change with the step
-            
-            if (this.storypos > (this.storyText.length - 1)){
-
-                console.log(this.basetext.kill)
-                this.basetext.kill();
-                this.textArea.kill();
-                this.storypos = 0;
-                return true;
-            } 
-            else this.textArea.text = this.storyText[this.storypos];
-
-            //The step increase
-            this.storypos = Math.abs(this.storypos + 1);
-
-            //The text is on top (on Z axis)
-            this.game.world.bringToTop(this.textArea);
-
-           }
-           , this);  
-        }
 
 };

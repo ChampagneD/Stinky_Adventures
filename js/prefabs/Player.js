@@ -36,12 +36,6 @@ Platformer.Player.prototype.update = function () {
 
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision);
 
-    if (this.game.time.events.paused == true) {
-
-        this.monState.basetext.kill();
-        this.monState.textArea.kill();
-    }
-
     this.body.velocity.x = 0;
     this.body.velocity.y = 0;
 
@@ -65,28 +59,59 @@ Platformer.Player.prototype.update = function () {
     if (window.i == 1) {
 
         // TrackEvents check if the player is near an event and then launch it
-        this.trackEvents(14,8,2, 12,8,2) && this.removeTile(1, 17,10, 18,10, 19,10, 17,11, 18,11, 19,11);
+        if(this.trackEvents(14,8,2, 12,8,2)){
+            if(this.removeTile(1, 17,10, 18,10, 19,10, 17,11, 18,11, 19,11)){
+
+                this.monState.eventSound.play();
+            }
+
+        }
     }
 
     if (window.i == 2) {
 
         // EventReplaceTile is executed and if it return true them we start this.removeTile
-        if (this.eventReplaceTile(4,41,1, 3105,2977, 3110,2980, 3169,3041, 3174,3044)) {
+        if (this.eventReplaceTile(1 ,4,41,1, 3105,2977, 3110,2980, 3169,3041, 3174,3044)) {
 
             if (this.removeTile(1, 23,41, 24,41, 25,41, 26,41, 23,42, 24,42, 25,42, 26,42)) {
-                    
-                this.game.time.events.removeAll();
+                
+                this.monState.eventSound.play();
+
+                this.monState.monTimer.removeAll();
+
+                this.monState.basetext.kill();
+                this.monState.textArea.kill();
 
                 // Here we cut the content string from the json into an array
-                
-                this.monState.storyText = [];
                 this.monState.storyText = this.monState.script_data[this.monState.level_data.scriptIndex.index].children[0].content.replace(/.[^\,!.]{1,100}\S*\s*/g, "$&@").split(/\s+@/);
 
                 this.monState.storypos = 0;
+
                 // Here we call the dialog fonction
                 this.monState.dialog();
-                console.log(this.game.time.events);
             }
+        }
+
+        if (this.eventReplaceTile(2, 12,31,2, 1707,1705, 1708,1706, 1771,1769, 1772,1770)) {
+                if (this.removeLayer("blackLayer")) {
+                    if (this.removeTile(1, 27,17, 27,18, 27,19, 27,20)) {
+
+                        this.monState.eventSound.play();
+
+                        this.monState.monTimer.removeAll();
+
+                        this.monState.basetext.kill();
+                        this.monState.textArea.kill();
+
+                        // Here we cut the content string from the json into an array
+                        this.monState.storyText = this.monState.script_data[this.monState.level_data.scriptIndex.index].children[1].content.replace(/.[^\,!.]{1,100}\S*\s*/g, "$&@").split(/\s+@/);
+
+                        this.monState.storypos = 0;
+
+                        // Here we call the dialog fonction
+                        this.monState.dialog();
+                    }
+                }
         }
     }
 };

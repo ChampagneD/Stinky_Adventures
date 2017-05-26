@@ -37,7 +37,7 @@ Platformer.Player.prototype.trackEvents = function(tile_x, tile_y, layer, tile2_
 
 };
 
-Platformer.Player.prototype.eventReplaceTile = function(tile_x, tile_y, layer, dtileID, rtileID, dtileID2, rtileID2, dtileID3, rtileID3, dtileID4, rtileID4, dtileID5, rtileID5) {
+Platformer.Player.prototype.eventReplaceTile = function(replacelayer,tile_x, tile_y, layer, dtileID, rtileID, dtileID2, rtileID2, dtileID3, rtileID3, dtileID4, rtileID4, dtileID5, rtileID5) {
 
     if (this.nb_event == true) {
 
@@ -48,15 +48,15 @@ Platformer.Player.prototype.eventReplaceTile = function(tile_x, tile_y, layer, d
 
         if (distance < 25 && this.actionKey.isDown) {   
 
-            this.mapInfo.replace(dtileID, rtileID, 0, 0, this.mapInfo.width, this.mapInfo.height, "collision");
+            this.mapInfo.replace(dtileID, rtileID, 0, 0, this.mapInfo.width, this.mapInfo.height, layer);
 
-            if (dtileID2 && rtileID2) this.mapInfo.replace(dtileID2, rtileID2, 0, 0, this.mapInfo.width, this.mapInfo.height, "collision");
+            if (dtileID2 && rtileID2) this.mapInfo.replace(dtileID2, rtileID2, 0, 0, this.mapInfo.width, this.mapInfo.height, replacelayer);
 
-            if (dtileID3 && rtileID3) this.mapInfo.replace(dtileID3, rtileID3, 0, 0, this.mapInfo.width, this.mapInfo.height, "collision");
+            if (dtileID3 && rtileID3) this.mapInfo.replace(dtileID3, rtileID3, 0, 0, this.mapInfo.width, this.mapInfo.height, replacelayer);
 
-            if (dtileID4 && rtileID4) this.mapInfo.replace(dtileID4, rtileID4, 0, 0, this.mapInfo.width, this.mapInfo.height, "collision");
+            if (dtileID4 && rtileID4) this.mapInfo.replace(dtileID4, rtileID4, 0, 0, this.mapInfo.width, this.mapInfo.height, replacelayer);
 
-            if (dtileID5 && rtileID5) this.mapInfo.replace(dtileID5, rtileID5, 0, 0, this.mapInfo.width, this.mapInfo.height, "collision");
+            if (dtileID5 && rtileID5) this.mapInfo.replace(dtileID5, rtileID5, 0, 0, this.mapInfo.width, this.mapInfo.height, replacelayer);
             
             this.nb_event = false;
 
@@ -85,3 +85,22 @@ Platformer.Player.prototype.removeTile = function(layer, dtile_x, dtile_y, dtile
 
     return true;
 };
+
+Platformer.Player.prototype.removeLayer = function(layer){
+
+    this.monState.layers[layer].destroy();
+
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
