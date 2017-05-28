@@ -63,6 +63,7 @@ Platformer.Player.prototype.update = function () {
             if(this.removeTile(1, 17,10, 18,10, 19,10, 17,11, 18,11, 19,11)){
 
                 this.monState.eventSound.play();
+
             }
 
         }
@@ -76,6 +77,11 @@ Platformer.Player.prototype.update = function () {
             if (this.removeTile(1, 23,41, 24,41, 25,41, 26,41, 23,42, 24,42, 25,42, 26,42)) {
                 
                 this.monState.eventSound.play();
+
+                this.monState.eventSound.onStop.add(function(){
+                            this.game.sound.pauseAll();
+                            this.monState.lvl2event1.play();
+                }, this);
 
                 this.monState.monTimer.removeAll();
 
@@ -97,6 +103,11 @@ Platformer.Player.prototype.update = function () {
                     if (this.removeTile(1, 27,17, 27,18, 27,19, 27,20)) {
 
                         this.monState.eventSound.play();
+
+                        this.monState.eventSound.onStop.add(function(){
+                            this.game.sound.pauseAll();
+                            this.monState.lvl2event2.play();
+                        }, this);
 
                         this.monState.monTimer.removeAll();
 

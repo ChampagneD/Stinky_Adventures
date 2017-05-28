@@ -37,9 +37,16 @@ Platformer.LoadingState.prototype.preload = function () {
       }
    }
 
+    //dialog box background
     this.load.image('basetext', 'assets/images/paper-dialog_big.png');
-    this.load.audio('script1', 'assets/son/script1.mp3');
+
+    //audio assets
+    this.load.audio('script'+window.i, 'assets/son/script'+window.i+'.mp3');
     this.load.audio('event', 'assets/son/event.wav');
+    this.load.audio('lvl2event1', 'assets/son/lvl2event1.mp3');
+    this.load.audio('lvl2event2', 'assets/son/lvl2event2.mp3');
+
+    //menu assets
     this.load.spritesheet('button', 'assets/images/menu_Buttons.png', 190, 49);
     this.load.spritesheet('tileSprite', 'assets/images/futur.png', 32, 32, 384);
     this.load.image('hero', 'assets/images/hero.png');

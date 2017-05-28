@@ -26,9 +26,12 @@ Platformer.TiledState.prototype.init = function (level_data, script_data) {
     //This variable define the step of the dialogue
     this.storypos=0;
 
-    this.mySound = this.add.audio('script1');
+    this.mySound = this.add.audio('script'+window.i);
 
     this.eventSound = this.add.audio("event");
+
+    this.lvl2event1 = this.add.audio('lvl2event1');
+    this.lvl2event2 = this.add.audio('lvl2event2');
 
     //The array for the text
     this.storyText = new Array();
@@ -83,6 +86,7 @@ Platformer.TiledState.prototype.create = function () {
 
     // Here we call the dialog fonction
     this.dialog();
+    this.mySound.play();
 
     // Here we create and draw the tileSprite
     //this.myTiledSprite = this.add.tileSprite(200, 200, 32, 32, 'tileSprite', 2);
@@ -141,8 +145,6 @@ Platformer.TiledState.prototype.dialog = function(){
         this.textArea.resolution = 1;
         this.textArea.setTextBounds(this.basetext.x + 20, this.basetext.y + 10, this.basetext.width - 10, this.basetext.height - 10);
         this.game.world.bringToTop(this.textArea);
-
-        this.mySound.play();
 
         //The text change with the step
         this.textArea.text = this.storyText[this.storypos];
