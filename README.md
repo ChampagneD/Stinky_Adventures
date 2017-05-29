@@ -1,4 +1,4 @@
-# Stinky Adventures
+# Stinky Adventures v1.0
 
 ### Web game in solo
 
@@ -26,4 +26,4 @@ windows-size screen
 
 #### Level 1
 
-One house, 2 possibilities
+You are in a house and you need to listen to the narrator 
